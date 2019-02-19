@@ -7,6 +7,7 @@ import lxml.html
 print("hello")
 # # Read in a page
 html = scraperwiki.scrape("http://foo.com")
+# show html code from webpage
 print(html)
 #
 # # Find something on the page using css selectors
