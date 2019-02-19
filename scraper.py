@@ -17,10 +17,17 @@ root = lxml.html.fromstring(html)
 root.cssselect("div[align='left']")
 print(root.cssselect("a"))
 listofmatches=root.cssselect("a")
+
+record={}
 for match in listofmatches:
+  record["link"]=lxml.html.tostring(match)
+  scraperwiki.sqlite.save(
+    unique_keys=['name'],
+    data=record)
   print(match)
   print(lxml.html.tostring(match))
 # # Write out to the sqlite database using scraperwiki library
+
 # scraperwiki.sqlite.save(unique_keys=['name'], data={"name": "susan", "occupation": "software developer"})
 #
 # # An arbitrary query against the database
