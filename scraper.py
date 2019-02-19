@@ -22,7 +22,7 @@ record={}
 for match in listofmatches:
   record["link"]=lxml.html.tostring(match)
   scraperwiki.sqlite.save(
-    unique_keys=['name'],
+    unique_keys=['link'],
     data=record)
   print(match)
   print(lxml.html.tostring(match))
